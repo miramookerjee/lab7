@@ -56,4 +56,13 @@ function generateRandomAnimal() {
 	if (randomAnimal instanceof Frog) {
 		return new Frog(generateRandomName(), generateRandomAge());
 	}
+
+function onLoad() {
+	  var animal = generateRandomAnimal();
+	  let animalImage = document.getElementById("animal-image");
+	  animalImage.setAttribute('src', animal.image);
+	  animalImage.setAttribute('alt', animal.image_alt);
+	  document.getElementById("name_header").innerHTML = animal.name;
+	  document.getElementById("age_header").innerHTML = animal.age;
+	}
 }
