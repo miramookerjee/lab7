@@ -4,21 +4,21 @@ function Cat(name, age) {
 	this.name = name;
 	this.age = age;
 	this.image_alt = "Image of a cat";
-  	this.image = "cat.jpg";
+  	this.image = "images/cat.png";
 }
 
 function Dog(name, age) {
   this.name = name;
   this.age = age;
   this.image_alt = "Image of a dog";
-  this.image = "dog.jpg";
+  this.image = "images/dog.png";
 }
 
 function Frog(name, age) {
   this.name = name;
   this.age = age;
   this.image_alt = "Image of a frog";
-  this.image = "frog.jpg";
+  this.image = "images/frog.png";
 }
 
 // GLobal Variables 
@@ -56,13 +56,14 @@ function generateRandomAnimal() {
 	if (randomAnimal instanceof Frog) {
 		return new Frog(generateRandomName(), generateRandomAge());
 	}
+}
 
 function onLoad() {
-	  var animal = generateRandomAnimal();
-	  let animalImage = document.getElementById("animal-image");
-	  animalImage.setAttribute('src', animal.image);
-	  animalImage.setAttribute('alt', animal.image_alt);
-	  document.getElementById("name_header").innerHTML = animal.name;
-	  document.getElementById("age_header").innerHTML = animal.age;
+  var animal = generateRandomAnimal();
+  let animalImage = document.getElementById("animal-image");
+  animalImage.setAttribute('src', animal.image);
+  animalImage.setAttribute('alt', animal.image_alt);
+  document.getElementById("name_header").innerHTML = animal.name;
+  document.getElementById("age_header").innerHTML = animal.age;
 	}
-}
+
