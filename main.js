@@ -59,11 +59,35 @@ function generateRandomAnimal() {
 }
 
 function onLoad() {
-  var animal = generateRandomAnimal();
+  var animal = JSON.parse(localStorage.getItem("savedAnimal"));
+  var hasSavedAnimal = (animal != null);
+  if (!hasSavedAnimal) {
+  	animal = generateRandomAnimal(); 
+  }
   let animalImage = document.getElementById("animal-image");
   animalImage.setAttribute('src', animal.image);
   animalImage.setAttribute('alt', animal.image_alt);
   document.getElementById("name_header").innerHTML = animal.name;
   document.getElementById("age_header").innerHTML = animal.age;
+
+  btn = document.getElementById("button-save");
+  if (hasSavedAnimal) {
+  	btn.textContent = "clear!"
+  }
+  else {
+	  btn.textContent = "save!"
 	}
+  btn.addEventListener("click", function() {
+  	if (hasSavedAnimal) {
+  		localStorage.removeItem("savedAnimal");
+  	}
+  	else {
+	  	console.log("clicked!");
+	  	localStorage.setItem("savedAnimal", JSON.stringify(animal));
+	  }
+  })
+
+}
+
+
 
